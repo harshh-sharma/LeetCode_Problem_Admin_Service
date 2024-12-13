@@ -1,6 +1,7 @@
 const express = require('express');
 const { PORT } = require('./config/serverConfig');
 const apiRouter = require('./routes');
+const errorHandler = require('./utils/ErrorHandler');
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.get('/',(req,res) => {
 })
 
 app.use('/api',apiRouter);
+
+app.use(errorHandler);
 
 app.listen(PORT,() => {
     console.log(`server successfully running on ${PORT}`);

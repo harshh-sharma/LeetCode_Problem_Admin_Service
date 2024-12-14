@@ -2,6 +2,7 @@ const express = require('express');
 const { PORT } = require('./config/serverConfig');
 const apiRouter = require('./routes');
 const errorHandler = require('./utils/ErrorHandler');
+const connectToDB = require('./config/dbConfig');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/api',apiRouter);
 
 app.use(errorHandler);
 
-app.listen(PORT,() => {
+app.listen(PORT,async() => {
+    await connectToDB();
     console.log(`server successfully running on ${PORT}`);
 })

@@ -1,7 +1,7 @@
 const express = require('express');
 const { PORT } = require('./config/serverConfig');
 const apiRouter = require('./routes');
-const errorHandler = require('./utils/ErrorHandler');
+const {ErrorHandler} = require('./utils/index');
 const connectToDB = require('./config/dbConfig');
 
 const app = express();
@@ -15,7 +15,7 @@ app.get('/',(req,res) => {
 
 app.use('/api',apiRouter);
 
-app.use(errorHandler);
+app.use(ErrorHandler);
 
 app.listen(PORT,async() => {
     await connectToDB();

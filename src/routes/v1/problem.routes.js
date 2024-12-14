@@ -2,6 +2,8 @@ const express = require('express');
 const {ProblemController} = require('../../controllers');
 
 const problemRouter = express.Router();
+console.log("req is coming");
+
 
 problemRouter.route('/').get(ProblemController.getProblems)
                         .post(ProblemController.addProblem);

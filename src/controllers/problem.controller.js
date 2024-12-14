@@ -1,24 +1,43 @@
-function addProblem(req,res){
-    return res.status(200).json({
-        success:true,
-        message:"sucessfully problem created"
-    })
+const NotImplementedError = require('../errors/notImplemented.error');
+
+function addProblem(req,res,next){
+    try {
+        throw new NotImplementedError('addProblem');
+    } catch (error) {
+        next(error);
+    }
 }
 
-function getProblems(req,res){
-
+function getProblems(req,res,next){
+    try {
+        throw new NotImplementedError('getProblems')
+    } catch (error) {
+        next();
+    }
 }
 
-function getProblem(req,res){
-
+function getProblem(req,res,next){
+    try {
+        throw new NotImplementedError('getProblem')
+    } catch (error) {
+        next();
+    }
 }
 
-function updateProblem(req,res){
-
+function updateProblem(req,res,next){
+    try {
+        throw new NotImplementedError('updateProblem')
+    } catch (error) {
+        next();
+    }
 }
 
-function deleteProblem(req,res){
-
+function deleteProblem(req,res,next){
+    try {
+        throw new NotImplementedError('deleteProblem')
+    } catch (error) {
+        next();
+    }
 }
 
 module.exports = {
